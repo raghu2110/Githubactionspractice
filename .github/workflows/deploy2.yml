@@ -1,0 +1,26 @@
+name: second workflow
+on: workflow_dispatch
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Run dependencies
+        run: npm ci
+      - name: Run lint script
+        run: npm run lint 
+  Test:
+    runs-on : ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Run dependencies
+        run: npm run ci
+      - name: Run test
+        run: npm run test
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: echo "Deploying"   
